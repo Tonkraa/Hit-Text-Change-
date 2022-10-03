@@ -1,0 +1,10 @@
+-- // Change status P\\ --
+print("Status changed")
+
+local a = require(game:GetService("ReplicatedStorage").Effect.Container.Misc.Damage)
+local old = a.Run
+a.Run = function(...)
+    args = {...}
+    args[1]['Value'] = "Critical"
+    return old(...)
+end
